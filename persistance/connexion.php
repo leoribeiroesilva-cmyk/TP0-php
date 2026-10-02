@@ -7,10 +7,10 @@ class Connexion
     public static function getConnexion()
     {
 
-        $dbhost = '127.0.0.1';
-        $dbbase = 'GJ_revision';
-        $dbuser = 'usersio';
-        $dbpwd = 'sio';
+        $dbhost = 'localhost';
+        $dbbase = 'lr_revision';
+        $dbuser = 'root';
+        $dbpwd = '';
 
         try {
             self::$cnx = new PDO("mysql:host=$dbhost;dbname=$dbbase", $dbuser, $dbpwd);

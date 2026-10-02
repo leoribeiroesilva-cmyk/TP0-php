@@ -46,4 +46,45 @@ class DialogueBD
             $erreur = $e->getMessage();
         }
     }
+    public function getToutLesProjets()
+    {
+        try {
+            $conn = Connexion::getConnexion();
+            $sql = "SELECT * FROM projets";
+            $sth = $conn->prepare($sql);
+            $sth->execute();
+            $tabProjets = $sth->fetchAll(PDO::FETCH_ASSOC);
+            return $tabProjets;
+        } catch (PDOException $e) {
+            $erreur = $e->getMessage();
+        }
+    }
+    public function getUnProjet($idProjet)
+    {
+        try{
+            $conn = Connexion::getConnexion();
+            $sql = "SELECT * FROM projets WHERE id=?";
+            $sth = $conn->prepare($sql);
+            $sth->execute(array($idProjet));
+            $projet = $sth->fetchObject();
+            return $projet;
+        } catch (PDOException $e) {
+            $erreur = $e->getMessage();
+        }
+
+    }
+    public function getEmployerDuProjet($idProjet)
+    {
+        try{
+            $conn = Connexion::getConnexion();
+            $sql = "SELECT * FROM employers WHERE projet_id=?";
+            $sql = $sql . " ORDER BY nom";
+            $sth = $conn->prepare($sql);
+            $sth->execute(array($idProjet));
+            $tabEmployerProjets = $sth->fetchAll(PDO::FETCH_ASSOC);
+            return $tabEmployerProjets;
+        } catch (PDOException $e) {
+            $erreur = $e->getMessage();
+        }
+    }
 }

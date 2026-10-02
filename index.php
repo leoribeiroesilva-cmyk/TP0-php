@@ -10,6 +10,7 @@
 <br><br>
 <ol>
     <li><a href="presentation/tableauFournisseurs.php">table Fournisseurs</a></li>
+    <li><a href="presentation/tableauProjets.php">table Projets</a></li>
 </ol>
 </body>
 </html>
