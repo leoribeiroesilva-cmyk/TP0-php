@@ -7,7 +7,7 @@ try {
     $id = $_GET['id'];
     $undlg = new DialogueBD();
     $projet = $undlg->getUnProjet($id);
-    $employers = $undlg->getEmployerDuProjet($id);
+    $employes = $undlg->getEmployesProjet($id);
 
 } catch (Exception $e) {
     $erreur = $e->getMessage();
@@ -17,6 +17,8 @@ try {
 <html>
 <head>
     <meta charset="UTF-8"/>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/design.css"/>
     <title>Détail Projets</title>
 </head>
 <body>
@@ -26,21 +28,25 @@ if (isset($erreur)) {
 }
 ?>
 <h1> <?php echo $projet->nom_projet; ?></h1>
-<h2>Liste des Employers</h2>
-<table>
+<h2>Liste des Employes</h2>
+<table class="table table-bordered table-striped table-responsive">
     <tr>
         <th>Nom</th>
         <th>Prenom</th>
         <th>Poste</th>
     </tr>
+    <?php  ?>
     <?php
-    foreach ($employers as $ligne) {
-        $nom = $ligne['nom'];
-        $prenom = $ligne['prenom'];
-        $poste = $ligne['poste'];
+    foreach ($employes as $employer) {
+        $nom = $employer['nom'];
+        $prenom = $employer['prenom'];
+        $poste = $employer['poste'];
         echo "<tr><td>$nom</td><td>$prenom</td><td>$poste</td></tr>";
     }
     ?>
 </table>
+<a href="tableauProjets.php" class="btn btn-primary">Retour à la liste des projets</a>
+<a href="/index.php" class="btn btn-primary">Retour à l'accueil</a>
+
 </body>
 </html>

@@ -37,11 +37,13 @@ if (isset($erreur)) {
         $email= $ligne['email'];
         $tel= $ligne['telephone'];
         echo "<tr><td>$nom</td><td>$adresse</td><td>$email</td><td>$tel</td>";
-        echo "<td><a href='detailFournisseur.php?id=$id'>voir le détail</a></td></tr>";
+        // mettre un bouton pour voir le détail du fournisseur
+        echo "<td><a href='detailFournisseur.php?id=$id' class='btn btn-primary'>voir le détail</a></td></tr>";
     }
     ?>
 
 </table>
+<a href="/index.php" class="btn btn-primary">Retour à l'accueil</a>
 
 </body>
 </html>

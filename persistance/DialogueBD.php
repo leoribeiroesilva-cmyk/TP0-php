@@ -71,18 +71,16 @@ class DialogueBD
         } catch (PDOException $e) {
             $erreur = $e->getMessage();
         }
-
     }
-    public function getEmployerDuProjet($idProjet)
+    public function getEmployesProjet($idProjet)
     {
         try{
             $conn = Connexion::getConnexion();
-            $sql = "SELECT * FROM employers WHERE projet_id=?";
-            $sql = $sql . " ORDER BY nom";
+            $sql = "SELECT * FROM employes WHERE projet_id=?";
             $sth = $conn->prepare($sql);
             $sth->execute(array($idProjet));
-            $tabEmployerProjets = $sth->fetchAll(PDO::FETCH_ASSOC);
-            return $tabEmployerProjets;
+            $tabEmployes = $sth->fetchAll(PDO::FETCH_ASSOC);
+            return $tabEmployes;
         } catch (PDOException $e) {
             $erreur = $e->getMessage();
         }

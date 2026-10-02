@@ -18,6 +18,8 @@ try {
 <html>
 <head>
     <meta charset="UTF-8"/>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/design.css"/>
     <title>Détail fournisseur</title>
 </head>
 <body>
@@ -29,7 +31,7 @@ if (isset($erreur)) {
 
 <h1><?php echo $fournisseur->nom_fournisseur; ?></h1>
 <h2>Liste des produits</h2>
-<table>
+<table class="table table-bordered table-striped table-responsive">
     <tr><th>Produit</th><th>Description</th><th>Prix</th></tr>
     <?php
     // Itération sur les lignes du tableau associatif (résultat requête SQL)
@@ -41,6 +43,8 @@ if (isset($erreur)) {
     }
     ?>
 </table>
+<a href="tableauFournisseurs.php" class="btn btn-primary">Retour à la liste des fournisseurs</a>
+<a href="/index.php" class="btn btn-primary">Retour à l'accueil</a>
 
 </body>
 </html>

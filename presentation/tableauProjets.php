@@ -24,7 +24,7 @@ if (isset($erreur)) {
     echo "Erreur : $erreur";
 }
 ?>
-<h1>Tableau des fournisseurs</h1>
+<h1>Tableau des projets</h1>
 <table class="table table-bordered table-striped table-responsive">
     <tr><th>Nom_projet</th><th>date_debut</th><th>date_fin</th><th></th></tr>
     <?php
@@ -34,11 +34,11 @@ if (isset($erreur)) {
         $date_debut = $ligne['date_debut'];
         $date_fin = $ligne['date_fin'];
         echo "<tr><td>$nom</td><td>$date_debut</td><td>$date_fin</td>";
-        echo "<td><a href='detailProjets.php?id=$id'>voir le détail</a></td></tr>";
-
+        echo "<td><a href='detailProjets.php?id=$id' class='btn btn-primary'>voir le détail</a></td></tr>";
     }
     ?>
 </table>
+<a href="/index.php" class="btn btn-primary">Retour à l'accueil</a>
 
 </body>
 </html>
